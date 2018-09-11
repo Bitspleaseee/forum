@@ -20,19 +20,17 @@ lang: en-US
 
 # Function requirements
 
-## Forum posts
-
-### Post handling
-
-- Replies should refer to the post they answered
-- Can create hierartical views of answers to organize a thread or show a linear thread based on arrival of answer
-- Replies to hidden messages are still shown
-
-### Post hierarchy
+## Post hierarchy
 
 - Category (made by moderator or higher)
     - Thread (made by users or higher)
         - Messages and replies (made by users or higher)
+
+## Post handling
+
+- Replies should refer to the post they answered
+- Can create hierartical views of answers to organize a thread or show a linear thread based on arrival of answer
+- Replies to hidden messages are still shown
 
 ## Usergroups
 
@@ -44,17 +42,20 @@ _Higher level usergroups have all the privileges of the lower usergroups_
     - administrate usergroups
     - hide categories/threads/messages[^delmsg]
 - Moderator
-    - hide messages[^delmsg]
+    - hide messages
     - add/alter categories
 - User
     - create threads/messages
     - change your own threads/messages
-    - hide your own threads/messages[^delmsg]
+    - hide your own threads/messages
 - Visitors
     - view categories/threads/messages
 
-[^delmsg]: should not directly delete the messages, because an attacker that
-get elevated privilages could then delete items from the database
+[^delmsg]: should not directly delete the messages to prevent vulnerabilities to cause the ability to delete parts of the database.
+
+## DFD-diagram
+
+![Dataflow diagram](assets/dfd.png)
 
 ## Functional requirements of processes
 
@@ -84,8 +85,14 @@ get elevated privilages could then delete items from the database
 
 ### Database
 
-- Vertification of authorization before every write operation
-- Separate auth and post database (post database contains simple user info to a user to a post)
+- Separate authentication and post database
+- Relational (SQL) database
+    - good for structured data
+    - data consistency through ACID
+
+![Authentication and authorization database](assets/database-schema-auth-data.png)
+
+![Post database](assets/database-schema-post-data.png)
 
 # Security requirements
 
@@ -178,13 +185,3 @@ An attacker tries to:
     - Monitor the logs
 
 [^objectives]: https://resources.sei.cmu.edu/library/asset-view.cfm?assetID=30108
-
-# DFD-diagram
-
-![Dataflow diagram](assets/dfd.png)
-
-See [assets/dfd.xml](assets/dfd.xml) which is a diagram created using [draw.io](draw.io)
-
-
-
-
