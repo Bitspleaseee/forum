@@ -90,15 +90,15 @@ get elevated privilages could then delete items from the database
 # Security requirements
 
 - Vertification of user
-  - user, visitor, moderator
+    - user, visitor, moderator
 - Input validation
-  - reject invalid requests
+    - reject invalid requests
 - Logging activities
-  - should prevent non-repudiation
+    - should prevent non-repudiation
 - Password vertification
-  - minimum 6 characters
-  - big and small letters and numbers
-  - use both salt and pepper next to the password in the hashing
+    - minimum 6 characters
+    - big and small letters and numbers
+    - use both salt and pepper next to the password in the hashing
 
 ## Use cases
 
@@ -123,59 +123,59 @@ An attacker tries to:
 - **Identification and authentication**: ensures that users and applications are
   correctly identified and the identities are verified
 
-  - Through username and password with an authentication server
+    - Through username and password with an authentication server
 
 - **Authorization**: Ensures that users and applications can only access data and
   functions they are authorized to
 
-  - Users are added to usergroups based on roles in the system
+    - Users are added to usergroups based on roles in the system
 
 - **Immunity**: prevent unauthorized code and programs from infecting the
   application
 
-  - Input validation and sanitation of input
+    - Input validation and sanitation of input
 
 - **Intrusion detection**: detect any attempt to intrude into the system
 
-  - Logging
+    - Logging
 
 - **Integrity**: ensure the integrity of data and communication channels, i.e.,
   they are not corrupted
 
-  - HTTPS
+    - HTTPS
 
 - **Non-repudiation:** ensure that users and entities can not deny (not) performing
   an interaction
 
-  - Logging
+    - Logging
 
 - Ensure that users and entities can not replicate and an interaction that has
   already been performed and finished
 
-  - Token based
+    - Token based
 
 - **Privacy:** ensure that confidentiality data and communications, i.e., they are
   kept secret
 
-  - HTTPS
+    - HTTPS
 
 - **Security auditing**: ensure the possibility to audit and monitor the status of
   critical and security functions
 
-  - Logging
-  - Testing (static analysis)
-  - Code review
+    - Logging
+    - Testing (static analysis)
+    - Code review
 
 - **Survivability and physical protection**: ensure that the applications and
   systems (including personnel) are protected and can survive and recover from
   attacks
 
-  - Frequent backups of the database
-  - Lock the door
+    - Frequent backups of the database
+    - Lock the door
 
 - **Secure maintenance**: ensure secure maintenance and secure operations
 
-  - Monitor the logs
+    - Monitor the logs
 
 [^objectives]: https://resources.sei.cmu.edu/library/asset-view.cfm?assetID=30108
 
