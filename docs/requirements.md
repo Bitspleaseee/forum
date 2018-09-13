@@ -50,7 +50,7 @@ _Higher level usergroups have all the privileges of the lower usergroups_
     - change your own threads/comments
     - hide your own threads/comments
 - Visitors
-    - view/search categories/threads/comments
+    - view/search categories/threads/comments/users
 
 [^delmsg]: should not directly delete the comments to prevent vulnerabilities to cause the ability to delete parts of the database.
 
