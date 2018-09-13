@@ -13,24 +13,24 @@ lang: en-US
 
 - Sign up/login
 - Create topics
-- Post replies and new messages
+- Post threads and comments
 
 - Visitors and logged in users into user groups
 - Privileges and rights are given based on these groups
 
 # Function requirements
 
-## Post hierarchy
+## Forum hierarchy
 
 - Category (made by moderator or higher)
     - Thread (made by users or higher)
-        - Messages and replies (made by users or higher)
+        - Comments (made by users or higher)
 
-## Post handling
+## Comment handling
 
-- Replies should refer to the post they answered
+- Comments should refer to the post they answered
 - Can create hierartical views of answers to organize a thread or show a linear thread based on arrival of answer
-- Replies to hidden messages are still shown
+- Comments to hidden comments are still shown
 
 ## Usergroups
 
@@ -40,18 +40,19 @@ _Higher level usergroups have all the privileges of the lower usergroups_
 
 - Admin
     - administrate usergroups
-    - hide categories/threads/messages[^delmsg]
+    - hide categories/threads/comments[^delmsg]
 - Moderator
-    - hide messages
+    - hide comments
     - add/alter categories
+    - ban/unban users
 - User
-    - create threads/messages
-    - change your own threads/messages
-    - hide your own threads/messages
+    - create threads/comments
+    - change your own threads/comments
+    - hide your own threads/comments
 - Visitors
-    - view categories/threads/messages
+    - view/search categories/threads/comments
 
-[^delmsg]: should not directly delete the messages to prevent vulnerabilities to cause the ability to delete parts of the database.
+[^delmsg]: should not directly delete the comments to prevent vulnerabilities to cause the ability to delete parts of the database.
 
 ## DFD-diagram
 
@@ -64,7 +65,7 @@ _Higher level usergroups have all the privileges of the lower usergroups_
 - Encrypted communication with the server (HTTPS)
 - Simple input validation to ease the load on server
 - Login and registration form
-- Display categories/threads/messages
+- Display categories/threads/comments
 
 ### Security gate
 
@@ -96,23 +97,26 @@ _Higher level usergroups have all the privileges of the lower usergroups_
 
 # Security requirements
 
-- Vertification of user
+- Verification of user
     - user, visitor, moderator
 - Input validation
     - reject invalid requests
 - Logging activities
     - should prevent non-repudiation
-- Password vertification
+- Password verification
     - minimum 6 characters
     - big and small letters and numbers
     - use both salt and pepper next to the password in the hashing
+    - lock after N failed attempts
+- Raise password protection awareness
+    - "Admin/Moderator will never ask for your password"
 
 ## Use cases
 
 The system allows:
 
 - users to login to be authenticated
-- users to create threads and messages
+- users to create threads and comments
 - moderators to create/alter categories
 - admins to change the usergroup of a user
 
@@ -121,7 +125,7 @@ The system allows:
 An attacker tries to:
 
 - gain extra privileges in the system
-- post/delete messages/threads on behalf of another user
+- post/delete comments/threads on behalf of another user
 - perform a DoS attack on the server
 - fill the forum with random data
 
