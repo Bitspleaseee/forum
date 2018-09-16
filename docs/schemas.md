@@ -11,7 +11,7 @@ lang: en-US
 
 # Abuse case diagrams
 
-![Abuse case diagram - password](assets/abuse-case-password.png)
-![Abuse case diagram - disruption](assets/abuse-case-disrupt.png)
-![Abuse case diagram - injection](assets/abuse-case-input.png)
+![Abuse case diagram - password](assets/abuse-cases-password.png)
+![Abuse case diagram - disruption of service](assets/abuse-cases-disrupt.png)
+![Abuse case diagram - injection](assets/abuse-cases-injection.png)
 

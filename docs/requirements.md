@@ -32,32 +32,6 @@ lang: en-US
 - Can create hierartical views of answers to organize a thread or show a linear thread based on arrival of answer
 - Comments to hidden comments are still shown
 
-## Usergroups
-
-All groups should have a limited actions per unit time, e.g can post 1 message per 5 seconds.
-
-_Higher level usergroups have all the privileges of the lower usergroups_
-
-- Admin
-    - administrate usergroups
-    - hide categories/threads/comments[^delmsg]
-- Moderator
-    - hide comments
-    - add/alter categories
-    - ban/unban users
-- User
-    - create threads/comments
-    - change your own threads/comments
-    - hide your own threads/comments
-- Visitors
-    - view/search categories/threads/comments/users
-
-[^delmsg]: should not directly delete the comments to prevent vulnerabilities to cause the ability to delete parts of the database.
-
-## DFD-diagram
-
-![Dataflow diagram](assets/dfd.png)
-
 ## Functional requirements of processes
 
 ### Webclient
@@ -96,38 +70,6 @@ _Higher level usergroups have all the privileges of the lower usergroups_
 ![Post database](assets/database-schema-post-data.png)
 
 # Security requirements
-
-- Verification of user
-    - user, visitor, moderator
-- Input validation
-    - reject invalid requests
-- Logging activities
-    - should prevent non-repudiation
-- Password verification
-    - minimum 6 characters
-    - big and small letters and numbers
-    - use both salt and pepper next to the password in the hashing
-    - lock after N failed attempts
-- Raise password protection awareness
-    - "Admin/Moderator will never ask for your password"
-
-## Use cases
-
-The system allows:
-
-- users to login to be authenticated
-- users to create threads and comments
-- moderators to create/alter categories
-- admins to change the usergroup of a user
-
-## Abuse cases
-
-An attacker tries to:
-
-- gain extra privileges in the system
-- post/delete comments/threads on behalf of another user
-- perform a DoS attack on the server
-- fill the forum with random data
 
 ## Objectives[^objectives]
 
@@ -189,3 +131,49 @@ An attacker tries to:
     - Monitor the logs
 
 [^objectives]: https://resources.sei.cmu.edu/library/asset-view.cfm?assetID=30108
+
+## Usergroups
+
+All groups should have a limited actions per unit time, e.g can post 1 message per 5 seconds.
+
+_Higher level usergroups have all the privileges of the lower usergroups_
+
+- Admin
+    - administrate usergroups
+    - hide categories/threads/comments[^delmsg]
+- Moderator
+    - hide comments
+    - add/alter categories
+    - ban/unban users
+- User
+    - create threads/comments
+    - change your own threads/comments
+    - hide your own threads/comments
+- Visitors
+    - view/search categories/threads/comments/users
+
+[^delmsg]: should not directly delete the comments to prevent vulnerabilities to cause the ability to delete parts of the database.
+
+
+## Use cases
+
+The system allows:
+
+- users to login to be authenticated
+- users to create threads and comments
+- moderators to create/alter categories
+- admins to change the usergroup of a user
+
+## Abuse cases
+
+An attacker tries to:
+
+- gain extra privileges in the system
+- post/delete comments/threads on behalf of another user
+- perform a DoS attack on the server
+- fill the forum with random data
+
+## DFD-diagram
+
+![Dataflow diagram](assets/dfd.png)
+
