@@ -1,0 +1,12 @@
+[submodule "security-gate"]
+	path = security-gate
+	url = git@bitbucket.org:bitspleasee/security-gate.git
+[submodule "web-client"]
+	path = web-client
+	url = git@bitbucket.org:bitspleasee/web-client.git
+[submodule "auth-service"]
+	path = auth-service
+	url = git@bitbucket.org:bitspleasee/auth-service.git
+[submodule "controller"]
+	path = controller
+	url = git@bitbucket.org:bitspleasee/controller.git
