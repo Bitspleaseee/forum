@@ -67,7 +67,7 @@ lang: en-US
 
 ![Authentication and authorization database](assets/database-schema-auth-data.png)
 
-![Post database](assets/database-schema-post-data.png)
+![Content database](assets/database-schema-content.png)
 
 # Security requirements
 
