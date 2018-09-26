@@ -13,7 +13,8 @@ lang: en-US
 
 # API endpoints
 
-**All routes should be prefixed with `/api`**
+- **All routes should be prefixed with `/api`**
+- **All POST request should have a [`RequestGuard`](https://rocket.rs/guide/requests/#request-guards)**
 
 ## Authentication
 
@@ -31,7 +32,5 @@ lang: en-US
 
 - `GET /api/user/<id>` - Get info on specific user
 - `GET /api/search?<query>` - Search through categories, threads, comments and users
-
-**NB! All POST request should have a [`RequestGuard`](https://rocket.rs/guide/requests/#request-guards)**
 
 - `POST /api/content` - All interactions where the client is allowed to alter or add new content (`ContentRequest`)
