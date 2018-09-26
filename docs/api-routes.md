@@ -21,42 +21,6 @@ lang: en-US
 
 ## Contents
 
-### Prerequisites
-
-Assumes that the ids are defined as:
-
-```rust
-/// Marker trait to simplify implementations of actions on any id-type
-trait Id {}
-
-#[derive(Clone, Copy, PartialEq, PartialOrd, Eq, Ord, Debug)]
-struct CategoryId(u32);
-impl Id for CategoryId {}
-
-#[derive(Clone, Copy, PartialEq, PartialOrd, Eq, Ord, Debug)]
-struct ThreadId(u32);
-impl Id for ThreadId {}
-
-#[derive(Clone, Copy, PartialEq, PartialOrd, Eq, Ord, Debug)]
-struct CommentId(u32);
-impl Id for CommentId {}
-
-#[derive(Clone, Copy, PartialEq, PartialOrd, Eq, Ord, Debug)]
-struct UserId(u32);
-impl Id for UserId {}
-
-/// Optional wrapper for any type which implements Id
-struct OptId<I: Id>(Option<I>);
-
-impl<I: Id> Deref for OptId<I> {
-    type Target = Option<I>;
-
-    fn deref(&self) -> &Self::Target {
-        &self.0
-    }
-}
-```
-
 ### Routes
 
 - `GET /api/category/<opt_id>` - Client gets all categories or specific category if `opt_id` is `Some(id)`
