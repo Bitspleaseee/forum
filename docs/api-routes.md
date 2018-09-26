@@ -70,6 +70,4 @@ impl<I: Id> Deref for OptId<I> {
 
 **NB! All POST request should have a [`RequestGuard`](https://rocket.rs/guide/requests/#request-guards)**
 
-- `POST /api/category` - Make new or edit category based on content of JSON object `ContentRequest`
-- `POST /api/thread` - Make new or edit thread based on content of JSON object `ContentRequest`
-- `POST /api/comment` - Make new or edit comment based on content of JSON object `ContentRequest`
+- `POST /api/content` - All interactions where the client is allowed to alter or add new content (`ContentRequest`)
