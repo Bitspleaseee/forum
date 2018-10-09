@@ -1,0 +1,46 @@
+version: '3.1'
+services:
+
+  controller:
+    depends_on:
+      - controller-db
+    environment:
+      CONTROLLER_ADDRESS: "controller:${CONTROLLER_PORT}"
+      CONTROLLER_DATABASE_URL: "mysql://${CONTROLLER_DB_USER}:${CONTROLLER_DB_PASSWORD}@controller-db:3306/${CONTROLLER_DB_DATABASE}"
+    build: ./controller
+  controller-db:
+    image: mariadb:10.3
+    environment:
+      MYSQL_USER: "${CONTROLLER_DB_USER}"
+      MYSQL_PASSWORD: "${CONTROLLER_DB_PASSWORD}"
+      MYSQL_DATABASE: "${CONTROLLER_DB_DATABASE}"
+      MYSQL_ROOT_PASSWORD: "${CONTROLLER_DB_ROOT_PASSWORD}"
+
+  auth-service:
+    depends_on:
+      - auth-db
+    environment:
+      AUTH_ADDRESS: "auth-service:${AUTH_PORT}"
+      AUTH_DATABASE_URL: "mysql://${AUTH_DB_USER}:${AUTH_DB_PASSWORD}@auth-db:3306/${AUTH_DB_DATABASE}"
+    build: ./auth-service
+  auth-db:
+    image: mariadb:10.3
+    environment:
+      MYSQL_USER: "${AUTH_DB_USER}"
+      MYSQL_PASSWORD: "${AUTH_DB_PASSWORD}"
+      MYSQL_DATABASE: "${AUTH_DB_DATABASE}"
+      MYSQL_ROOT_PASSWORD: "${AUTH_DB_ROOT_PASSWORD}"
+
+  security-gate:
+    depends_on:
+      - controller
+      - auth-service
+    environment:
+      SECURITY_GATE_ADDRESS: "security-gate"
+      SECURITY_GATE_PORT: "${SECURITY_GATE_PORT}"
+      AUTH_ADDRESS: "auth-service:${AUTH_PORT}"
+      CONTROLLER_ADDRESS: "controller:${CONTROLLER_PORT}"
+    build: ./security-gate
+
+
+# vim:ts=2:sw=2
