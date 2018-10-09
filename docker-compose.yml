@@ -10,6 +10,8 @@ services:
     build: ./controller
   controller-db:
     image: mariadb:10.3
+    volumes:
+      - content-data:/var/lib/mysql
     environment:
       MYSQL_USER: "${CONTROLLER_DB_USER}"
       MYSQL_PASSWORD: "${CONTROLLER_DB_PASSWORD}"
@@ -25,6 +27,8 @@ services:
     build: ./auth-service
   auth-db:
     image: mariadb:10.3
+    volumes:
+      - auth-data:/var/lib/mysql
     environment:
       MYSQL_USER: "${AUTH_DB_USER}"
       MYSQL_PASSWORD: "${AUTH_DB_PASSWORD}"
@@ -42,5 +46,8 @@ services:
       CONTROLLER_ADDRESS: "controller:${CONTROLLER_PORT}"
     build: ./security-gate
 
+volumes:
+  auth-data:
+  content-data:
 
 # vim:ts=2:sw=2
