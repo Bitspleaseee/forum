@@ -12,6 +12,13 @@ docker-compose up
 
 Find the IP of the `security-gate` using `docker inspect forum_security-gate_1`, and go to `http://<security-gate-ip>/index.html`.
 
+## Links to docker
+
+*These were added after the deadline*
+
+- [forum_controller](https://hub.docker.com/r/barskern/forum_controller/)
+- [forum_security-gate](https://hub.docker.com/r/barskern/forum_security-gate/)
+- [forum_auth-service](https://hub.docker.com/r/barskern/forum_auth-service/)
 
 ## Group members
 
