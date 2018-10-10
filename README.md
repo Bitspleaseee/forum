@@ -12,6 +12,15 @@ docker-compose up
 
 Find the IP of the `security-gate` using `docker inspect forum_security-gate_1`, and go to `http://<security-gate-ip>/index.html`.
 
+
+*Added after deadline*
+
+A command which returns the IP-address of a running docker container.
+
+```
+docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' forum_security-gate_1
+```
+
 ## Links to docker
 
 *These were added after the deadline*
