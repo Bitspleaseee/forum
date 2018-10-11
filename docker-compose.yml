@@ -41,5 +41,7 @@ services:
       AUTH_ADDRESS: "auth-service:${AUTH_PORT}"
       CONTROLLER_ADDRESS: "controller:${CONTROLLER_PORT}"
     build: ./security-gate
+    ports:
+      - "80:80"
 
 # vim:ts=2:sw=2
