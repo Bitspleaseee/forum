@@ -49,4 +49,3 @@ The server responded with: ()
 - [forum_controller](https://hub.docker.com/r/barskern/forum_controller/)
 - [forum_security-gate](https://hub.docker.com/r/barskern/forum_security-gate/)
 - [forum_auth-service](https://hub.docker.com/r/barskern/forum_auth-service/)
-
